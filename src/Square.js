@@ -37,13 +37,13 @@ class Square extends Component {
         let minY = this.props.squareDetails.y > 0 ? this.props.squareDetails.y - 1 : 0
         let maxY = this.props.squareDetails.y < this.props.gameGrid.length - 1 ? this.props.squareDetails.y + 1 : this.props.squareDetails.y
 
-        let numberOfNeighorMines = 0
+        let numberOfNeighborMines = 0
         this.props.gameGrid.slice(minY, maxY+1).forEach(function(row) {
-          row.slice(minX, maxX+1).forEach(function(square) { if (square.mine) {numberOfNeighorMines++} })
+          row.slice(minX, maxX+1).forEach(function(square) { if (square.mine) {numberOfNeighborMines++} })
         });
 
         this.setState({
-          content: numberOfNeighorMines,
+          content: numberOfNeighborMines > 0 ? numberOfNeighborMines : '',
           isClicked: true,
           className: this.state.className + ' clicked',
         })
