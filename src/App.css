@@ -1,9 +1,11 @@
 .App {
   text-align: center;
+  height: 100vh;
+  background-color: #282c34;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 15vmin;
   pointer-events: none;
 }
 
@@ -15,7 +17,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +27,31 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Square {
+  width: 40px;
+  height: 40px;
+  margin: 0 1px 0 1px;
+  line-height: 39px;
+  background-color: rgb(172, 172, 172);
+}
+
+.clicked {
+  background-color: #777777;
+}
+
+.Row {
+  height: 40px;
+  display: flex;
+  margin: 1px 0 1px 0;
+}
+
+.gameGrid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes App-logo-spin {
