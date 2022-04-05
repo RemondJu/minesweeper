@@ -11,6 +11,8 @@ class Row extends Component {
       {this.props.squares.map(square => 
         <Square 
           key={'square' + square.x + square.y} 
+          squareDetails={square}
+          gameGrid={this.props.gameGrid}
           mine={square.mine}
           gameOver={this.props.gameOver}
           handleFailedGame={this.props.handleFailedGame}

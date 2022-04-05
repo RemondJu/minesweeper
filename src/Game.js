@@ -38,6 +38,7 @@ class Game extends React.Component {
         <Row
           key={'row' + index}
           squares={el}
+          gameGrid={this.state.gameGrid}
           handleFailedGame={this.handleFailedGame}
           gameOver={this.state.gameOver}
         />

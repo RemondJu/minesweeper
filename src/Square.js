@@ -14,7 +14,7 @@ class Square extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.gameOver && !this.state.isClicked && this.state.content !== 'F') {
+    if (!this.state.isClicked && this.state.content !== 'F') {
       this.revealContent()
     }
   }
@@ -32,10 +32,18 @@ class Square extends Component {
       if (this.props.mine) {
         this.props.handleFailedGame();
       } else {
-        // TODO neighor mines number logic
-        let newContent = '';
+        let minX = this.props.squareDetails.x > 0 ? this.props.squareDetails.x - 1 : 0
+        let maxX = this.props.squareDetails.x < this.props.gameGrid[0].length - 1 ? this.props.squareDetails.x + 1 : this.props.squareDetails.x
+        let minY = this.props.squareDetails.y > 0 ? this.props.squareDetails.y - 1 : 0
+        let maxY = this.props.squareDetails.y < this.props.gameGrid.length - 1 ? this.props.squareDetails.y + 1 : this.props.squareDetails.y
+
+        let numberOfNeighorMines = 0
+        this.props.gameGrid.slice(minY, maxY+1).forEach(function(row) {
+          row.slice(minX, maxX+1).forEach(function(square) { if (square.mine) {numberOfNeighorMines++} })
+        });
+
         this.setState({
-          content: newContent,
+          content: numberOfNeighorMines,
           isClicked: true,
           className: this.state.className + ' clicked',
         })
