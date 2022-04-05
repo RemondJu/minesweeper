@@ -14,7 +14,7 @@ class Square extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.state.isClicked && this.state.content !== 'F') {
+    if (this.props.gameOver && !this.state.isClicked && this.state.content !== 'F') {
       this.revealContent()
     }
   }
@@ -27,7 +27,8 @@ class Square extends Component {
     })
   }
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     if (this.state.content !== 'F') {
       if (this.props.mine) {
         this.props.handleFailedGame();
