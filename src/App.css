@@ -42,6 +42,10 @@
   background-color: #777777;
 }
 
+.failed {
+  color: rgb(64, 1, 1)
+}
+
 .Row {
   height: 40px;
   display: flex;

@@ -8,7 +8,14 @@ class Row extends Component {
 
   render () {
     return <div className='Row'>
-      {this.props.squares.map(square => <Square key={square.x + square.y} mine={square.mine} />)}
+      {this.props.squares.map(square => 
+        <Square 
+          key={'square' + square.x + square.y} 
+          mine={square.mine}
+          gameOver={this.props.gameOver}
+          handleFailedGame={this.props.handleFailedGame}
+        />
+      )}
     </div>
   }
 }

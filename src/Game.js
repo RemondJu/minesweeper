@@ -21,13 +21,27 @@ class Game extends React.Component {
           {x: 1, y: 2, mine: false},
           {x: 2, y: 2, mine: true},
         ]
-      ]
+      ],
+      gameOver: false,
     }
+
+    this.handleFailedGame = this.handleFailedGame.bind(this)
+  }
+
+  handleFailedGame() {
+    this.setState({gameOver: true})
   }
 
   render () {
     return <div className='gameGrid'>
-      {this.state.gameGrid.map((el, index) => <Row key={index} squares={el} />)}
+      {this.state.gameGrid.map((el, index) => 
+        <Row
+          key={'row' + index}
+          squares={el}
+          handleFailedGame={this.handleFailedGame}
+          gameOver={this.state.gameOver}
+        />
+      )}
       
     </div>;
   }
