@@ -11,6 +11,7 @@ export default function Row (props) {
         mine={square.mine}
         gameOver={props.gameOver}
         handleFailedGame={props.handleFailedGame}
+        revealEmptyNeighorSquares={props.revealEmptyNeighorSquares}
       />
     )}
   </div>

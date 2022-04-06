@@ -48,6 +48,9 @@ export default function Game () {
   )
   const [gameOver, setGameOver] = useState(false)
   const handleFailedGame = () => setGameOver(true);
+  const revealEmptyNeighorSquares = (x, y) => {
+    // TODO reveal empty neighor Squares given clicked Square position
+  };
 
   return <div className='gameGrid'>
     {gameGrid.map((el, index) => 
@@ -56,6 +59,7 @@ export default function Game () {
         squares={el}
         gameGrid={gameGrid}
         handleFailedGame={handleFailedGame}
+        revealEmptyNeighorSquares={revealEmptyNeighorSquares}
         gameOver={gameOver}
       />
     )}
