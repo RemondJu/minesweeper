@@ -3,7 +3,7 @@ import Square from './Square';
 
 export default function Row (props) {
   return <div className='Row'>
-    {props.squares.map(square => 
+    {props.row.map(square => 
       <Square 
         key={'square' + square.x + square.y} 
         squareDetails={square}

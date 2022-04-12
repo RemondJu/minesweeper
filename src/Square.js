@@ -43,6 +43,7 @@ export default function Square (props) {
         props.handleFailedGame();
       } else {
         showNumberOfNeighborMines()
+        props.revealEmptyNeighorSquares()
       }
     }
   }
