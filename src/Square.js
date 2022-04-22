@@ -16,21 +16,6 @@ export default function Square (props) {
     setClassName(className + ' clicked failed')
   }
 
-  // const showNumberOfNeighborMines = () => {
-  //   let minX = props.squareDetails.x > 0 ? props.squareDetails.x - 1 : 0
-  //   let maxX = props.squareDetails.x < props.gameGrid[0].length - 1 ? props.squareDetails.x + 1 : props.squareDetails.x
-  //   let minY = props.squareDetails.y > 0 ? props.squareDetails.y - 1 : 0
-  //   let maxY = props.squareDetails.y < props.gameGrid.length - 1 ? props.squareDetails.y + 1 : props.squareDetails.y
-
-  //   let numberOfNeighborMines = 0
-  //   props.gameGrid.slice(minY, maxY+1).forEach(function(row) {
-  //     row.slice(minX, maxX+1).forEach(function(square) { if (square.mine) {numberOfNeighborMines++} })
-  //   });
-  //   if (numberOfNeighborMines === 0) {
-  //     props.revealEmptyNeighorSquares(props.squareDetails.x, props.squareDetails.y)
-  //   }
-  // }
-
   const handleClick = (event) => {
     event.preventDefault();
     if (content !== 'F') {
@@ -52,7 +37,9 @@ export default function Square (props) {
   }
 
   if (isRevealed) {
-    return <div className={className}>{props.squareDetails.content}</div>;
+    return <div className={className}>
+      {props.squareDetails.content === 0 ? '' : props.squareDetails.content}
+    </div>;
   } else {
     return <div
       className={className}
